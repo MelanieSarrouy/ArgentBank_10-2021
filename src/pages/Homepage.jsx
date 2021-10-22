@@ -1,13 +1,17 @@
 import React from 'react'
 import Features from '../components/Features'
-import Hero from '../utils/styles/components/Hero'
+import Header from '../components/Header'
+import Hero from '../components/Hero'
 
 const Homepage = () => {
   return (
-    <main>
-      <Hero />
-      <Features />
-    </main>
+    <div>
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+      </main>
+    </div>
   )
 }
 

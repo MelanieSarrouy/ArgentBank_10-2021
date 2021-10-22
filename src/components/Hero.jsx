@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeroStyle, HeroContent, Subtitle, Text } from '../../styles/components/hero'
+import { HeroStyle, HeroContent, Subtitle, Text } from '../utils/styles/components/hero'
 
 const Hero = () => {
   return (

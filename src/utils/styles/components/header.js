@@ -25,7 +25,8 @@ export const NavLinkElements = styled(NavLink)`
   }
   & > i {
     font-size: 2rem;
-    padding: 0 .8rem;
+    padding: 0 .5rem;
+    margin-left: 1.5rem;
   }
 `
 export const Logo = styled.img`
@@ -41,10 +42,7 @@ export const LinkTitle = styled.div`
     font-size: 1.1rem;
   }
 `
-// export const Icon = styled.i`
-//   padding: 0 0.8rem;
-//   font-size: 2rem;
-//   &:hover {
-//     text-decoration: none;
-//   }
-// `
+export const NavLinksWrapper = styled.div`
+  display: flex;
+
+`
