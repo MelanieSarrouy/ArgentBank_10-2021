@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import colors from '../bases/colors'
 
-export const Button = styled.input`
+export const InputButton = styled.input`
   display: flex;
   justify-content: center;
-  width: ${(props) => props.width};
-  padding: 0.5rem;
+  min-width: ${(props) => props.width};
+  padding: 0.5rem 1.5rem;
   margin-top: 1rem;
   font-size: 1.1rem;
   font-weight: bold;

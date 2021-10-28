@@ -6,13 +6,13 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-const Input = ({ forAndId, inputType, direction }) => {
+const Input = ({ forAndId, inputType, direction, value, onChange }) => {
   return (
     <InputWrapper direction={direction}>
       <InputLabel htmlFor={forAndId}>
         {capitalizeFirstLetter(forAndId)}
       </InputLabel>
-      <InputStyle type={inputType} id={forAndId} />
+      <InputStyle type={inputType} id={forAndId} value={value} onChange={onChange} />
     </InputWrapper>
   )
 }

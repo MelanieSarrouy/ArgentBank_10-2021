@@ -47,4 +47,22 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
+  @keyframes swing {
+  20% {
+    transform: rotate(3deg);
+  }
+  40% {
+    transform: rotate(-2deg);
+  }
+  60% {
+    transform: rotate(1deg);
+  }
+  80% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 `
