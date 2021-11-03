@@ -1,10 +1,23 @@
 import React from 'react'
-import { FooterStyle } from '../utils/styles/components/footer'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleTheme } from '../actions/actionTheme'
+import { FooterStyle, Button, Copyright } from '../styles/components/footer'
+
 
 const Footer = () => {
+  const selectTheme = (state) => state.theme
+  const theme = useSelector(selectTheme)
+  const dispatch = useDispatch()
   return (
-    <FooterStyle>
-      <p>Copyright 2020 Argent Bank</p>
+    <FooterStyle theme={theme}>
+      <Copyright theme={theme}>Copyright 2020 Argent Bank</Copyright>
+      <div onClick={() => dispatch(toggleTheme())}>
+        {theme === 'light' ? (
+          <Button theme={theme}>Dark</Button>
+        ) : (
+          <Button theme={theme}>Light</Button>
+        )}
+      </div>
     </FooterStyle>
   )
 }

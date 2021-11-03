@@ -1,5 +1,3 @@
-// export const LOGIN = 'LOGIN'
-
 export const LOAD_TOKEN = 'LOAD_TOKEN'
 export const LOAD_TOKEN_SUCCESS = 'LOAD_TOKEN_SUCCESS'
 export const LOAD_TOKEN_ERROR = 'LOAD_TOKEN_ERROR'
@@ -14,7 +12,9 @@ export const LOAD_EDIT_USER = 'LOAD_EDIT_USER'
 export const LOAD_EDIT_USER_SUCCESS = 'LOAD_EDIT_USER_SUCCESS'
 export const LOAD_EDIT_USER_ERROR = 'LOAD_EDIT_USER_ERROR'
 
+export const TOGGLE_THEME = 'TOGGLE_THEME'
 
-// export const GET_USER = 'GET_USER'
+export const SET_THEME = 'SET_THEME'
 
-// export const EDIT_USER = 'EDIT_USER'
+
+

@@ -10,24 +10,29 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 0.35rem 1.25rem;
-  background-color: white;
+  background-color: ${({ theme }) =>
+    theme === 'light' ? 'white' : `${colors.backgroundDark}`};
 `
 export const NavLinkElements = styled(NavLink)`
   font-weight: 700;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
+  color: ${({ theme }) =>
+    theme === 'light' ? `${colors.text}` : 'white'};
   &.${(props) => props.activeClassName} {
     color: ${colors.primary};
   }
   &:hover {
     color: ${colors.primary};
   }
-  & > i {
+`
+export const Icon = styled.i`
     font-size: 2rem;
     padding: 0 0.5rem;
     margin-left: 1.5rem;
-  }
+    color: ${({ theme }) =>
+    theme === 'light' ? `${colors.text}` : 'white'};
 `
 export const Logo = styled.img`
   width: 12.5rem;

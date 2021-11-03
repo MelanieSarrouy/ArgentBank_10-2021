@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { LOAD_GET_USER, LOAD_GET_USER_SUCCESS, LOAD_GET_USER_ERROR } from '../utils/type/types'
+import { LOAD_GET_USER, LOAD_GET_USER_SUCCESS, LOAD_GET_USER_ERROR } from '../types/types'
 
 const baseURL = 'http://localhost:3001/api/v1/user/'
 
@@ -16,6 +16,7 @@ const loadApiUserSuccess = (user) => {
   }
 }
 
+ 
 const loadApiUserError = (error) => {
   return {
     type: LOAD_GET_USER_ERROR,
@@ -23,18 +24,29 @@ const loadApiUserError = (error) => {
   }
 }
 
-export const getUser = (token) => {
+export const getUser = (token, password) => {
   return (dispatch) => {
     dispatch(loadApiUser())
-    axios.post(baseURL + 'profile', {
-      headers: { Authorization: `Bearer ${token}`},
+    axios({
+      method: "POST",
+      url: baseURL + 'profile',
+      headers: { Authorization: `Bearer ${token}` },
     })
     .then((response) => {
-      console.log(response.data.body)
-      dispatch(loadApiUserSuccess(response.data.body))
+      dispatch(loadApiUserSuccess(response.data))
+      localStorage.setItem('email', response.data.body.email)
+      localStorage.setItem('password', password)
     })
     .catch((error) => {
       dispatch(loadApiUserError(error.message))
     })
   }
 }
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 import React from 'react'
 import features from '../datas/features'
 import Feature from './Feature'
-import { FeaturesStyle } from '../utils/styles/components/features'
+import { FeaturesStyle } from '../styles/components/features'
 
 const Features = () => {
   return (

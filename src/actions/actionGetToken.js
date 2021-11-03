@@ -3,7 +3,8 @@ import {
   LOAD_TOKEN,
   LOAD_TOKEN_SUCCESS,
   LOAD_TOKEN_ERROR,
-} from '../utils/type/types'
+} from '../types/types'
+import { getUser } from './actionGetUser'
 
 const baseURL = 'http://localhost:3001/api/v1/user/'
 
@@ -37,10 +38,12 @@ export const getToken = (email, password) => {
       })
       .then((response) => {
         dispatch(loadApiTokenSuccess(response.data.body.token))
+        localStorage.setItem('token', response.data.body.token)
+        const token = localStorage.getItem('token')
+        dispatch(getUser(token, password))
       })
       .catch((error) => {
         dispatch(loadApiTokenError(error.message))
       })
   }
 }
-

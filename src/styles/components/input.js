@@ -9,6 +9,8 @@ export const InputWrapper = styled.div`
 `
 export const InputLabel = styled.label`
   font-weight: bold;
+  color: ${({ theme }) =>
+    theme === 'light' ? `${colors.text}` : 'white'};
 `
 export const InputStyle = styled.input`
   padding: 5px;
@@ -16,7 +18,8 @@ export const InputStyle = styled.input`
   margin-right: 0.5rem;
   &:hover {
     border: 2px solid ${colors.text};
+    border: ${({ theme }) =>
+    theme === 'light' ? `2px solid ${colors.text}` : '2px solid white'};
     border-radius: .2rem;
-    background-color: rgba(44, 62, 80, 0.1)
   }
 `

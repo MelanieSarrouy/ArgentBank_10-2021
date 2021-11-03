@@ -13,9 +13,13 @@ export const FeatureImage = styled.img`
   border: 0.65rem solid ${colors.primary};
   border-radius: 50%;
   padding: 1rem;
+  background-color: ${({ theme }) =>
+    theme === 'light'
+      ? `${colors.backgroundLight}`
+      : `${colors.backgroundLight}`};
 `
 export const FeatureTitle = styled.h3`
-  color: ${colors.text};
+  color: ${({ theme }) => (theme === 'light' ? `${colors.text}` : 'white')};
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -24,4 +28,5 @@ export const FeatureTitle = styled.h3`
 `
 export const FeatureText = styled.p`
   text-align: center;
+  color: ${({ theme }) => (theme === 'light' ? `${colors.text}` : 'white')};
 `

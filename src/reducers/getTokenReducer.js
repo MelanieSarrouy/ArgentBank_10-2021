@@ -1,4 +1,4 @@
-import { LOAD_TOKEN, LOAD_TOKEN_SUCCESS, LOAD_TOKEN_ERROR } from '../utils/type/types'
+import { LOAD_TOKEN, LOAD_TOKEN_SUCCESS, LOAD_TOKEN_ERROR } from '../types/types'
 
 const initialStateToken = {
   isLoading: false,

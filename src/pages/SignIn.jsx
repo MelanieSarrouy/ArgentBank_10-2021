@@ -1,50 +1,47 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-// import { Redirect } from 'react-router'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Redirect } from 'react-router'
 import { getToken } from '../actions/actionGetToken'
-import { getUser } from '../actions/actionGetUser'
-import Header from '../components/Header'
 import Input from '../components/Input'
-import { InputButton } from '../utils/styles/components/button'
+import colors from '../styles/bases/colors'
+import { InputButton } from '../styles/components/button'
 import {
   SignInMain,
   SignInSection,
   SignInSectionHeader,
   SignInIcon,
   SignInTitle,
-} from '../utils/styles/pages/signIn'
+} from '../styles/pages/signIn'
 
 const SignIn = () => {
+  const selectTheme = (state) => state.theme
+  const theme = useSelector(selectTheme)
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const token = useSelector(selectToken)
-  const user = useSelector(selectUser)
+  const [isLogged, setIsLogged] = useState(false)
   const dispatch = useDispatch()
-  console.log(token + user)
+  const selectMessage = (state) => state.getUser.user.status
+  const message = useSelector(selectMessage)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(getToken(email, password))
-    if (token) {
-      login(token)
-    }
-  
+    setIsLogged(true)
   }
-
-  const login = (token) => {
-    dispatch(getUser(token))
+  if (isLogged && message === 200) {
+    return <Redirect to="/user" />
+  } else {
+    console.log('invalid fields')
   }
 
   return (
-    <div>
-      <Header />
-      <SignInMain>
-        <SignInSection>
+    <>
+      <SignInMain theme={theme}>
+        <SignInSection theme={theme}>
           <SignInSectionHeader>
-            <SignInIcon className="fa fa-user-circle"></SignInIcon>
-            <SignInTitle>Sign In</SignInTitle>
+            <SignInIcon theme={theme} className="fa fa-user-circle"></SignInIcon>
+            <SignInTitle theme={theme}>Sign In</SignInTitle>
           </SignInSectionHeader>
           <form onSubmit={handleSubmit}>
             <Input
@@ -70,16 +67,20 @@ const SignIn = () => {
               forAndId={'remember-me'}
               inputType={'checkbox'}
             />
-            <InputButton type="submit" width="100%" value="Sign In" />
+            <InputButton
+              theme={theme}
+              type="submit"
+              borderColor={colors.primary}
+              bkgColor={colors.primary}
+              txtColor="white"
+              width="100%"
+              value="Sign In"
+            />
           </form>
-          <Link to="/user/:id?">Page User (provisoire)</Link>
         </SignInSection>
       </SignInMain>
-    </div>
+    </>
   )
 }
-
-const selectToken = (state) => state.token.token
-const selectUser = (state) => state.getUser.user
 
 export default SignIn

@@ -1,24 +1,33 @@
 import React from 'react'
-import { InputButton } from '../utils/styles/components/button'
+import { InputButton } from '../styles/components/button'
 import {
-  AccountSection,
+  AccountArticle,
   AccountContentWrapper,
   AccountTitle,
   AccountAmount,
-} from '../utils/styles/components/account'
+  AccountDescription
+} from '../styles/components/account'
+import { useSelector } from 'react-redux'
 
 const Account = ({ title, amount, description }) => {
+  const selectTheme = (state) => state.theme
+  const theme = useSelector(selectTheme)
+
   return (
-    <AccountSection>
+    <AccountArticle theme={theme}>
       <AccountContentWrapper>
-        <AccountTitle>{title}</AccountTitle>
-        <AccountAmount>$ {amount.toLocaleString('en')}</AccountAmount>
-        <p>{description}</p>
+        <AccountTitle theme={theme}>{title}</AccountTitle>
+        <AccountAmount theme={theme}>$ {amount.toLocaleString('en')}</AccountAmount>
+        <AccountDescription theme={theme}>{description}</AccountDescription>
       </AccountContentWrapper>
       <div className="account-content-wrapper cta">
-        <InputButton type="button" value="View transactions" width="100%" />
+        <InputButton
+          type="button"
+          value="View transactions"
+          width="100%"
+        />
       </div>
-    </AccountSection>
+    </AccountArticle>
   )
 }
 

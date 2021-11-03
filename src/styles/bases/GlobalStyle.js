@@ -1,7 +1,8 @@
+import { useSelector } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 import colors from './colors'
 
-export const GlobalStyle = createGlobalStyle`
+export const StyledGlobalStyle = createGlobalStyle`
 /* Styles principaux */
 * {
     font-family: 'Nunito', Helvetica, sans-serif;
@@ -11,7 +12,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
   }
   body {
-    background-color: ${colors.backgroundLight};
+    background-color: ${(props) =>
+          props.isDarkMode ? `${colors.text}` : `${colors.backgroundLight}`};
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -66,3 +68,9 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 `
+export const GlobalStyle = () => {
+  const selectTheme = (state) => state.theme
+  const theme = useSelector(selectTheme)
+
+  return <StyledGlobalStyle isDarkMode={theme === 'dark'} />
+}
