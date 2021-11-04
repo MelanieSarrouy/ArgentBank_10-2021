@@ -7,6 +7,14 @@ export const FeatureItemStyle = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 720px) {
+    padding: 2.5rem 2.5rem 0 2.5rem;
+  }
+  @media (max-width: 520px) {
+    padding: 2rem 1.3rem 0 1.3rem;
+  }
+
+
 `
 export const FeatureImage = styled.img`
   width: 6.25rem;

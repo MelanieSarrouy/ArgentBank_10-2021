@@ -20,6 +20,16 @@ export const EditNameWrapper = styled.form`
   align-items: center;
   row-gap: 0.7rem;
   padding-top: 1rem;
+  width: 100%;
+`
+export const InputWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 520px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `
 export const InputStyle = styled.input`
   padding: 0.5rem 0.8rem;
@@ -31,9 +41,18 @@ export const InputStyle = styled.input`
   &:hover {
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   }
+  @media (max-width: 720px) {
+    width: 12rem;
+  }
+
+  @media (max-width: 520px) {
+    margin: 0.6rem 0 0 0;
+    width: 100%;
+  }
 `
 export const ButtonsWrapper = styled.div`
   display: flex;
+  justify-content: center;
 `
 export const InputButtonsStyle = styled.input`
   display: flex;
@@ -45,7 +64,7 @@ export const InputButtonsStyle = styled.input`
   font-weight: 700;
   border: 2px solid ${colors.primary};
   border-radius: 0.3rem;
-  width: 8rem;
+  width: 7.5rem;
   margin: 0 0.4rem;
   cursor: pointer;
   &:hover {
@@ -54,4 +73,11 @@ export const InputButtonsStyle = styled.input`
     color: white;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
   }
+`
+export const SectionAccount = styled.section`
+  padding: 0 1.25rem;
+  @media (max-width: 520px) {
+    padding: 0;
+  }
+
 `

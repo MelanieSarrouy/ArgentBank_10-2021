@@ -9,6 +9,7 @@ import {
   HeaderStyle,
   NavLinksWrapper,
   Icon,
+  Paragraph,
 } from '../styles/components/header'
 
 const Header = () => {
@@ -26,47 +27,31 @@ const Header = () => {
   return (
     <HeaderStyle>
       <Nav theme={theme}>
-        <NavLinkElements theme={theme} exact to="/" activeClassName="something">
+        <NavLinkElements theme={theme} exact to="/">
           <h1 className="sr-only">Argent Bank</h1>
-          <Logo
-            src={logo}
-            alt="Argent Bank Logo"
-            width="200px"
-            height="55px"
-          ></Logo>
+          <Logo src={logo} alt="Argent Bank Logo"></Logo>
         </NavLinkElements>
         {!login ? (
           <NavLinksWrapper>
-            <NavLinkElements
-              theme={theme}
-              exact
-              to="/sign-in"
-              activeClassName="something"
-            >
+            <NavLinkElements theme={theme} exact to="/sign-in">
               <Icon theme={theme} className="fa fa-user-circle"></Icon>
-              Sign In
+              <Paragraph theme={theme}>Sign In</Paragraph>
             </NavLinkElements>
           </NavLinksWrapper>
         ) : (
           <NavLinksWrapper>
-            <NavLinkElements
-              theme={theme}
-              exact
-              to="/user"
-              activeClassName="something"
-            >
+            <NavLinkElements theme={theme} exact to="/user">
               <Icon theme={theme} className="fa fa-user-circle"></Icon>
-              {user.body.firstName}
+              <Paragraph theme={theme}>{user.body.firstName}</Paragraph>
             </NavLinkElements>
             <NavLinkElements
               theme={theme}
               exact
               to="/"
-              activeClassName="something"
               onClick={() => dispatch(logout())}
             >
               <Icon theme={theme} className="fa fa-sign-out"></Icon>
-              Sign Out
+              <Paragraph theme={theme}>Sign Out</Paragraph>
             </NavLinkElements>
           </NavLinksWrapper>
         )}

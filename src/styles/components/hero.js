@@ -9,6 +9,9 @@ export const HeroStyle = styled.header`
   background-repeat: no-repeat;
   height: 25rem;
   position: relative;
+  @media (max-width: 520px) {
+    height: 16rem;
+  }
 `
 export const HeroContent = styled.div`
   position: absolute;
@@ -20,20 +23,31 @@ export const HeroContent = styled.div`
   padding: 2rem;
   text-align: left;
   margin: 2rem;
-  border-radius: .35rem;
+  border-radius: 0.35rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  @media (max-width: 520px) {
+    width: 12rem;
+    padding: 1.5rem;
+    margin: auto;
+    right: 0;
+    left: 0;
+  }
 `
 export const Subtitle = styled.p`
   font-weight: bold;
   font-size: 1.5rem;
   margin: 0;
-  color: ${({ theme }) =>
-    theme === 'light' ? `${colors.text}` : 'white'};
+  color: ${({ theme }) => (theme === 'light' ? `${colors.text}` : 'white')};
+  @media (max-width: 520px) {
+    font-size: 1.2rem;
+  }
 `
 export const Text = styled.p`
   margin-bottom: 0;
   font-size: 1.2rem;
-  padding-top: .5rem;
-  color: ${({ theme }) =>
-    theme === 'light' ? `${colors.text}` : 'white'};
+  padding-top: 0.5rem;
+  color: ${({ theme }) => (theme === 'light' ? `${colors.text}` : 'white')};
+  @media (max-width: 520px) {
+    font-size: 1rem;
+  }
 `

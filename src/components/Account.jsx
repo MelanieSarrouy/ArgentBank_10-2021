@@ -5,7 +5,8 @@ import {
   AccountContentWrapper,
   AccountTitle,
   AccountAmount,
-  AccountDescription
+  AccountDescription,
+  ButtonWrapper
 } from '../styles/components/account'
 import { useSelector } from 'react-redux'
 
@@ -20,13 +21,13 @@ const Account = ({ title, amount, description }) => {
         <AccountAmount theme={theme}>$ {amount.toLocaleString('en')}</AccountAmount>
         <AccountDescription theme={theme}>{description}</AccountDescription>
       </AccountContentWrapper>
-      <div className="account-content-wrapper cta">
+      <ButtonWrapper>
         <InputButton
           type="button"
           value="View transactions"
           width="100%"
         />
-      </div>
+      </ButtonWrapper>
     </AccountArticle>
   )
 }

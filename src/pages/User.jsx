@@ -7,6 +7,8 @@ import {
   InputStyle,
   ButtonsWrapper,
   InputButtonsStyle,
+  InputWrapper,
+  SectionAccount
 } from '../styles/pages/user'
 import account from '../datas/account'
 import Account from '../components/Account'
@@ -48,7 +50,7 @@ const User = () => {
         </Title>
         {editName ? (
           <EditNameWrapper>
-            <div>
+            <InputWrapper>
               <InputStyle
                 theme={theme}
                 value={newFirstName}
@@ -67,7 +69,7 @@ const User = () => {
                   setNewLastName(e.target.value)
                 }}
               />
-            </div>
+            </InputWrapper>
             <ButtonsWrapper>
               <InputButtonsStyle type="submit" value="Save" onClick={edit} />
               <InputButtonsStyle
@@ -95,7 +97,7 @@ const User = () => {
       </UserHeaderMain>
 
       <h3 className="sr-only">Accounts</h3>
-      <section>
+      <SectionAccount>
         {account.map((ac, index) => (
           <Account
             key={index}
@@ -104,7 +106,7 @@ const User = () => {
             description={ac.description}
           />
         ))}
-      </section>
+      </SectionAccount>
     </>
   )
 }
