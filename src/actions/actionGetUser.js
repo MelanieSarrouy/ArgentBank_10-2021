@@ -24,7 +24,7 @@ const loadApiUserError = (error) => {
   }
 }
 
-export const getUser = (token, password) => {
+export const getUser = (token) => {
   return (dispatch) => {
     dispatch(loadApiUser())
     axios({
@@ -34,8 +34,6 @@ export const getUser = (token, password) => {
     })
     .then((response) => {
       dispatch(loadApiUserSuccess(response.data))
-      localStorage.setItem('email', response.data.body.email)
-      localStorage.setItem('password', password)
     })
     .catch((error) => {
       dispatch(loadApiUserError(error.message))

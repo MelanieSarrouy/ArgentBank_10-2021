@@ -27,7 +27,6 @@ const User = () => {
   const selectUser = (state) => state.getUser.user.body
   const user = useSelector(selectUser)
   const dispatch = useDispatch()
-  console.log(user)
 
   if (user === undefined) {
     return <Redirect to="/" />

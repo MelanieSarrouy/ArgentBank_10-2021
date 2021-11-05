@@ -20,6 +20,7 @@ const SignIn = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isLogged, setIsLogged] = useState(false)
   const dispatch = useDispatch()
   const selectMessage = (state) => state.getUser.user.status
   const message = useSelector(selectMessage)
@@ -27,11 +28,12 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (email.length === 0 || password.length === 0) {
+    if (email === '' || password === '') {
       setInvalidFields('Please fill fields correctly')
     } else {
       dispatch(getToken(email, password))
-      if (message === undefined) {
+      setIsLogged(true)
+      if (isLogged && message === undefined) {
         setInvalidFields('Email or password invalid')
       }
     }

@@ -40,7 +40,7 @@ export const getToken = (email, password) => {
         dispatch(loadApiTokenSuccess(response.data.body.token))
         localStorage.setItem('token', response.data.body.token)
         const token = localStorage.getItem('token')
-        dispatch(getUser(token, password))
+        dispatch(getUser(token))
       })
       .catch((error) => {
         dispatch(loadApiTokenError(error.message))
