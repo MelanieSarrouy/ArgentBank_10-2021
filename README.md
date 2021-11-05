@@ -1,3 +1,5 @@
+[logo Argent Bank](./src/assets/argentBankLogo.png)
+
 # ARGENT BANK : Use an API for bank's user account with React and Redux
 
  ### P13 - OpenClassrooms
