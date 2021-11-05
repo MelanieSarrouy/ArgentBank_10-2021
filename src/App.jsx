@@ -10,6 +10,7 @@ import Header from './components/Header'
 import Homepage from './pages/Homepage' // styles imports
 import SignIn from './pages/SignIn'
 import User from './pages/User'
+import NotFound from './pages/NotFound'
 import store from './store/store'
 // styles imports
 import { GlobalStyle } from './styles/bases/GlobalStyle'
@@ -34,7 +35,7 @@ const App = () => {
               <Route exact path="/" component={Homepage} />
               <Route exact path="/sign-in" component={SignIn} />
               <Route exact path="/user" component={User} />
-              {/* <Route component={NotFound} /> */}
+              <Route component={NotFound} />
             </Switch>
           </section>
         </main>
