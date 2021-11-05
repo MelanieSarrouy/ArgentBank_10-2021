@@ -34,3 +34,7 @@ export const SignInTitle = styled.h1`
   color: ${({ theme }) =>
     theme === 'light' ? `${colors.text}` : 'white'};
 `
+export const ErrorMessage = styled.p`
+  color: red;
+  font-weight: bold;
+`

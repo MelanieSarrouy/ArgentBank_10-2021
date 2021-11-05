@@ -11,6 +11,7 @@ import {
   SignInSectionHeader,
   SignInIcon,
   SignInTitle,
+  ErrorMessage
 } from '../styles/pages/signIn'
 
 const SignIn = () => {
@@ -19,21 +20,26 @@ const SignIn = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isLogged, setIsLogged] = useState(false)
   const dispatch = useDispatch()
   const selectMessage = (state) => state.getUser.user.status
   const message = useSelector(selectMessage)
+  const [invalidFields, setInvalidFields] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(getToken(email, password))
-    setIsLogged(true)
+    if (email.length === 0 || password.length === 0) {
+      setInvalidFields('Please fill fields correctly')
+    } else {
+      dispatch(getToken(email, password))
+      if (message === undefined) {
+        setInvalidFields('Email or password invalid')
+      }
+    }
   }
-  if (isLogged && message === 200) {
+  if (message === 200) {
     return <Redirect to="/user" />
-  } else {
-    console.log('invalid fields')
-  }
+  } 
+
 
   return (
     <>
@@ -67,6 +73,7 @@ const SignIn = () => {
               forAndId={'remember-me'}
               inputType={'checkbox'}
             />
+            <ErrorMessage>{invalidFields}</ErrorMessage>
             <InputButton
               theme={theme}
               type="submit"
