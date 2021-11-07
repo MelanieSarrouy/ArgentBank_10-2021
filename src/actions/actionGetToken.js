@@ -1,32 +1,22 @@
 import axios from 'axios'
-import {
-  LOAD_TOKEN,
-  LOAD_TOKEN_SUCCESS,
-  LOAD_TOKEN_ERROR,
-} from '../types/types'
 import { getUser } from './actionGetUser'
+import { createAction } from '@reduxjs/toolkit'
 
 const baseURL = 'http://localhost:3001/api/v1/user/'
 
-const loadApiToken = () => {
-  return {
-    type: LOAD_TOKEN,
-  }
-}
+export const loadApiToken = createAction('LOAD_TOKEN')
 
-const loadApiTokenSuccess = (token) => {
+export const loadApiTokenSuccess = createAction('LOAD_TOKEN_SUCCESS', (token) => {
   return {
-    type: LOAD_TOKEN_SUCCESS,
-    payload: token,
+    payload: { token }
   }
-}
+})
 
-const loadApiTokenError = (error) => {
+export const loadApiTokenError = createAction('LOAD_TOKEN_ERROR', (error) => {
   return {
-    type: LOAD_TOKEN_ERROR,
-    payload: error,
+    payload: { error }
   }
-}
+})
 
 export const getToken = (email, password) => {
   return (dispatch) => {

@@ -1,8 +1,10 @@
-import { LOGOUT } from "../types/types"
+import { createAction } from "@reduxjs/toolkit"
+
+export const logOut = createAction('LOGOUT')
 
 export const logout = () => {
   localStorage.removeItem('token')
-  return {
-    type: LOGOUT,
+  return (dispatch) => {
+    dispatch(logOut())
   }
 }

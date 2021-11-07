@@ -1,4 +1,4 @@
-import { LOAD_TOKEN, LOAD_TOKEN_SUCCESS, LOAD_TOKEN_ERROR } from '../types/types'
+import { loadApiToken, loadApiTokenError, loadApiTokenSuccess } from '../actions/actionGetToken'
 
 const initialStateToken = {
   isLoading: false,
@@ -8,19 +8,19 @@ const initialStateToken = {
 
 const tokenReducer = (state = initialStateToken, action) => {
   switch (action.type) {
-    case LOAD_TOKEN:
+    case loadApiToken.toString():
       return {
         ...state,
         isLoading: true
       }
-    case LOAD_TOKEN_SUCCESS:
+    case loadApiTokenSuccess.toString():
       return {
         ...state,
         isLoading: false,
         token: action.payload,
         error: ''
       }
-    case LOAD_TOKEN_ERROR:
+    case loadApiTokenError.toString():
       return {
         ...state,
         isLoading: false,

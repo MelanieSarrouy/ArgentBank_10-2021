@@ -1,12 +1,6 @@
-import {
-  LOAD_GET_USER,
-  LOAD_GET_USER_SUCCESS,
-  LOAD_GET_USER_ERROR,
-  LOGOUT,
-  LOAD_EDIT_USER,
-  LOAD_EDIT_USER_SUCCESS,
-  LOAD_EDIT_USER_ERROR,
-} from '../types/types'
+import { loadApiUser, loadApiUserError, loadApiUserSuccess } from '../actions/actionGetUser'
+import { logOut } from '../actions/actionLogout'
+import { loadApiEditUser, loadApiEditUserSuccess, loadApiEditUserError } from '../actions/actionEditUser'
 
 const initialStateToken = {
   isLoading: false,
@@ -17,12 +11,12 @@ const initialStateToken = {
 
 const getUserReducer = (state = initialStateToken, action) => {
   switch (action.type) {
-    case LOAD_GET_USER:
+    case loadApiUser.toString():
       return {
         ...state,
         isLoading: true,
       }
-    case LOAD_GET_USER_SUCCESS:
+    case loadApiUserSuccess.toString():
       return {
         ...state,
         isLoading: false,
@@ -30,7 +24,7 @@ const getUserReducer = (state = initialStateToken, action) => {
         user: action.payload,
         error: '',
       }
-    case LOAD_GET_USER_ERROR:
+    case loadApiUserError.toString():
       return {
         ...state,
         isLoading: false,
@@ -39,7 +33,7 @@ const getUserReducer = (state = initialStateToken, action) => {
         error: action.payload,
       }
 
-    case LOGOUT:
+    case logOut.toString():
       return {
         ...state,
         isLoading: false,
@@ -48,19 +42,19 @@ const getUserReducer = (state = initialStateToken, action) => {
         error: '',
       }
 
-    case LOAD_EDIT_USER:
+    case loadApiEditUser.toString():
       return {
         ...state,
         isLoading: true,
       }
-    case LOAD_EDIT_USER_SUCCESS:
+    case loadApiEditUserSuccess.toString():
       return {
         ...state,
         isLoading: false,
         user: action.payload,
         error: '',
       }
-    case LOAD_EDIT_USER_ERROR:
+    case loadApiEditUserError.toString():
       return {
         ...state,
         isLoading: false,

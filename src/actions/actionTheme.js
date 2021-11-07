@@ -1,15 +1,4 @@
-import { TOGGLE_THEME, SET_THEME } from "../types/types";
+import { createAction } from "@reduxjs/toolkit";
 
-export const toggleTheme = () => {
-  return {
-    type: TOGGLE_THEME,
-  }
-}
 
-export const setTheme = (theme = 'light') => {
-  return {
-    type: SET_THEME,
-    payload: theme,
-  }
-}
-
+export const toggleTheme = createAction('TOGGLE_THEME')
