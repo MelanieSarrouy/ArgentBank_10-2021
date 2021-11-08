@@ -1,8 +1,20 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
+// styles imports
 import { HeroStyle, HeroContent, Subtitle, Text } from '../styles/components/hero'
 
-const Hero = () => {
+// JSX // _________________________________________________________________
+
+/**
+ * Hero component to display homepage's hero
+ * @name Hero
+ * @returns {?JSX}
+ */
+
+ const Hero = () => {
   const selectTheme = (state) => state.theme
   const theme = useSelector(selectTheme)
 
@@ -18,5 +30,13 @@ const Hero = () => {
     </HeroStyle>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+HeroContent.propTypes = {
+  theme: PropTypes.string.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Hero

@@ -1,6 +1,23 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { NotFoundMain, NotFoundContent, Subtitle, Text } from '../styles/pages/notFound'
+import PropTypes from 'prop-types'
+// styles imports
+import {
+  NotFoundMain,
+  NotFoundContent,
+  Subtitle,
+  Text,
+} from '../styles/pages/notFound'
+
+// JSX // _________________________________________________________________
+
+/**
+ * NotFound component to display website's 404 page
+ * @name NotFound
+ * @returns {?JSX}
+ */
 
 const NotFound = () => {
   const selectTheme = (state) => state.theme
@@ -14,7 +31,15 @@ const NotFound = () => {
         <Text theme={theme}>Not found</Text>
       </NotFoundContent>
     </NotFoundMain>
-  );
-};
+  )
+}
 
-export default NotFound;
+// PROPTYPES // ___________________________________________________________
+
+NotFoundMain.propTypes = {
+  theme: PropTypes.string.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
+export default NotFound

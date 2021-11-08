@@ -1,8 +1,20 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
+// actions imports
 import { toggleTheme } from '../actions/actionTheme'
+// styles imports
 import { FooterStyle, Button, Copyright } from '../styles/components/footer'
 
+// JSX // _________________________________________________________________
+
+/**
+ * Footer component to display website's footer
+ * @name Footer
+ * @returns {?JSX}
+ */
 
 const Footer = () => {
   const selectTheme = (state) => state.theme
@@ -21,5 +33,13 @@ const Footer = () => {
     </FooterStyle>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+FooterStyle.propTypes = {
+  theme: PropTypes.string.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Footer

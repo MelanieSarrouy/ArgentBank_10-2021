@@ -1,4 +1,16 @@
+// IMPORTS // ______________________________________________________________
+
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Redirect } from 'react-router'
+import PropTypes from 'prop-types'
+// datas imports
+import account from '../datas/account'
+// components imports
+import Account from '../components/Account'
+// actions imports
+import { editUser } from '../actions/actionEditUser'
+// styles imports
 import { InputButton } from '../styles/components/button'
 import {
   UserHeaderMain,
@@ -10,14 +22,17 @@ import {
   InputWrapper,
   SectionAccount
 } from '../styles/pages/user'
-import account from '../datas/account'
-import Account from '../components/Account'
-import { useDispatch, useSelector } from 'react-redux'
-import { Redirect } from 'react-router'
-import { editUser } from '../actions/actionEditUser'
 import colors from '../styles/bases/colors'
 
-const User = () => {
+// JSX // _________________________________________________________________
+
+/**
+ * User component to display website's user page
+ * @name User
+ * @returns {?JSX}
+ */
+
+ const User = () => {
   const selectTheme = (state) => state.theme
   const theme = useSelector(selectTheme)
 
@@ -109,5 +124,13 @@ const User = () => {
     </>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Title.propTypes = {
+  theme: PropTypes.string.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default User

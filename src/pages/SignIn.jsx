@@ -1,8 +1,14 @@
+// IMPORTS // ______________________________________________________________
+
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router'
+import PropTypes from 'prop-types'
+// actions imports
 import { getToken } from '../actions/actionGetToken'
+// components imports
 import Input from '../components/Input'
+// styles imports
 import colors from '../styles/bases/colors'
 import { InputButton } from '../styles/components/button'
 import {
@@ -14,7 +20,15 @@ import {
   ErrorMessage
 } from '../styles/pages/signIn'
 
-const SignIn = () => {
+// JSX // _________________________________________________________________
+
+/**
+ * SignIn component to display website's log in page
+ * @name SignIn
+ * @returns {?JSX}
+ */
+
+ const SignIn = () => {
   const selectTheme = (state) => state.theme
   const theme = useSelector(selectTheme)
 
@@ -91,5 +105,14 @@ const SignIn = () => {
     </>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+SignInMain.propTypes = {
+  theme: PropTypes.string.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
 
 export default SignIn

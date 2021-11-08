@@ -1,4 +1,9 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
+import { useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
+// styles imports
 import { InputButton } from '../styles/components/button'
 import {
   AccountArticle,
@@ -8,7 +13,17 @@ import {
   AccountDescription,
   ButtonWrapper
 } from '../styles/components/account'
-import { useSelector } from 'react-redux'
+
+// JSX // _________________________________________________________________
+
+/**
+ * Account component to display user account informations
+ * @name Account
+ * @param {string} tilte
+ * @param {number} amount
+ * @param {string} description
+ * @returns {?JSX}
+ */
 
 const Account = ({ title, amount, description }) => {
   const selectTheme = (state) => state.theme
@@ -31,5 +46,19 @@ const Account = ({ title, amount, description }) => {
     </AccountArticle>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Account.propTypes = {
+  title: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired
+}
+
+AccountArticle.propTypes = {
+  theme: PropTypes.string.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Account

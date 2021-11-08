@@ -1,7 +1,7 @@
 <br/>
 <p align="center"><img src="https://github.com/MelanieSarrouy/MelanieSarrouy_P13_18102021/blob/main/src/assets/argentBankLogo.png?raw=true" alt="Logo Argent Bank" /></p>
 
-# ARGENT BANK : Use an API for bank's user account with React and Redux
+# ARGENT BANK: Use an API for bank's user account with React and Redux
 
  ### P13 - OpenClassrooms
   

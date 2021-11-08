@@ -1,7 +1,20 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
+// datas imports
 import features from '../datas/features'
+// components imports
 import Feature from './Feature'
+// styles imports
 import { FeaturesStyle } from '../styles/components/features'
+
+// JSX // _________________________________________________________________
+
+/**
+ * Features component to display bank's features
+ * @name Features
+ * @returns {?JSX}
+ */
 
 const Features = () => {
   return (
@@ -19,5 +32,7 @@ const Features = () => {
     </FeaturesStyle>
   )
 }
+
+// EXPORT // ______________________________________________________________
 
 export default Features

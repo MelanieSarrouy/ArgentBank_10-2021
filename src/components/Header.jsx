@@ -1,7 +1,13 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
+// actions imports
 import { logout } from '../actions/actionLogout'
+// assets imports
 import logo from '../assets/argentBankLogo.png'
+// styles imports
 import {
   Nav,
   NavLinkElements,
@@ -11,6 +17,14 @@ import {
   Icon,
   Paragraph,
 } from '../styles/components/header'
+
+// JSX // _________________________________________________________________
+
+/**
+ * Header component to display website's header
+ * @name Header
+ * @returns {?JSX}
+ */
 
 const Header = () => {
   const selectTheme = (state) => state.theme
@@ -59,5 +73,13 @@ const Header = () => {
     </HeaderStyle>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Nav.propTypes = {
+  theme: PropTypes.string.isRequired,
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Header

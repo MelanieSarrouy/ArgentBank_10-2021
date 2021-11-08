@@ -1,5 +1,9 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
+// styles imports
 import {
   FeatureItemStyle,
   FeatureImage,
@@ -7,7 +11,19 @@ import {
   FeatureTitle,
 } from '../styles/components/feature'
 
-const Feature = ({ icon, alt, title, content }) => {
+// JSX // _________________________________________________________________
+
+/**
+ * Feature component to display feature
+ * @name Feature
+ * @param {string} icon
+ * @param {string} alt
+ * @param {string} title
+ * @param {string} content
+ * @returns {?JSX}
+ */
+
+ const Feature = ({ icon, alt, title, content }) => {
   const selectTheme = (state) => state.theme
   const theme = useSelector(selectTheme)
 
@@ -19,5 +35,19 @@ const Feature = ({ icon, alt, title, content }) => {
     </FeatureItemStyle>
   )
 }
+// PROPTYPES // ___________________________________________________________
+
+Feature.propTypes = {
+  icon: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired
+}
+
+FeatureImage.propTypes = {
+  theme: PropTypes.string.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Feature
