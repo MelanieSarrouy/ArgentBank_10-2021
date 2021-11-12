@@ -17,7 +17,7 @@ import {
   SignInSectionHeader,
   SignInIcon,
   SignInTitle,
-  ErrorMessage
+  ErrorMessage,
 } from '../styles/pages/signIn'
 
 // JSX // _________________________________________________________________
@@ -29,38 +29,39 @@ import {
  */
 
 const SignIn = () => {
-  const selectTheme = (state) => state.theme
-  const theme = useSelector(selectTheme)
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const dispatch = useDispatch()
-  const selectMessage = (state) => state.getUser.user.status
-  const message = useSelector(selectMessage)
   const [invalidFields, setInvalidFields] = useState('')
+
+  const dispatch = useDispatch()
+
+  const theme = useSelector((state) => state.theme)
+  const message = useSelector((state) => state.getUser.user.status)
+  const tokenExist = useSelector((state) => state.token.tokenExist)
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setInvalidFields('')
     if (email === '' || password === '') {
-      setInvalidFields('Please fill fields correctly')
+      return setInvalidFields('Please fill fields correctly')
     } else {
       dispatch(getToken(email, password))
-      setInvalidFields('')
-      if (invalidFields === '' && message === undefined) {
-        setInvalidFields('Email or password invalid')
-      }
     }
   }
+
   if (message === 200) {
     return <Redirect to="/user" />
-  } 
+  }
 
   return (
     <>
       <SignInMain theme={theme}>
         <SignInSection theme={theme}>
           <SignInSectionHeader>
-            <SignInIcon theme={theme} className="fa fa-user-circle"></SignInIcon>
+            <SignInIcon
+              theme={theme}
+              className="fa fa-user-circle"
+            ></SignInIcon>
             <SignInTitle theme={theme}>Sign In</SignInTitle>
           </SignInSectionHeader>
           <form onSubmit={handleSubmit}>
@@ -88,6 +89,9 @@ const SignIn = () => {
               inputType={'checkbox'}
             />
             <ErrorMessage>{invalidFields}</ErrorMessage>
+            {tokenExist === false && (
+              <ErrorMessage>Email or password invalid</ErrorMessage>
+            )}
             <InputButton
               theme={theme}
               type="submit"
@@ -107,10 +111,9 @@ const SignIn = () => {
 // PROPTYPES // ___________________________________________________________
 
 SignInMain.propTypes = {
-  theme: PropTypes.string.isRequired
+  theme: PropTypes.string.isRequired,
 }
 
 // EXPORT // ______________________________________________________________
-
 
 export default SignIn
