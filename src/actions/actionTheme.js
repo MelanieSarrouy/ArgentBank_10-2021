@@ -1,14 +1,5 @@
 // IMPORTS // ______________________________________________________________
-import { createAction } from "@reduxjs/toolkit";
-
-// CONSTANTS // ______________________________________________________________
-
-/** 
- * Constants redux actions
- * @constant 
- * @type {string}
- */
-const TOGGLE_THEME = 'TOGGLE_THEME'
+import { createAction } from '@reduxjs/toolkit'
 
 // ACTIONS // ______________________________________________________________
 
@@ -17,4 +8,4 @@ const TOGGLE_THEME = 'TOGGLE_THEME'
  * @reduxAction
  */
 
-export const toggleTheme = createAction(TOGGLE_THEME)
+export const toggleTheme = createAction('toggle/theme')

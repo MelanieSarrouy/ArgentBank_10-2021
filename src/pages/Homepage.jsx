@@ -13,7 +13,7 @@ import Hero from '../components/Hero'
  * @returns {?JSX}
  */
 
- const Homepage = () => {
+const Homepage = () => {
   return (
     <>
         <Hero />

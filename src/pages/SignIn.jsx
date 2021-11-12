@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router'
 import PropTypes from 'prop-types'
-// actions imports
-import { getToken } from '../actions/actionGetToken'
+// API calls
+import { getToken } from '../services/API'
 // components imports
 import Input from '../components/Input'
 // styles imports
@@ -28,7 +28,7 @@ import {
  * @returns {?JSX}
  */
 
- const SignIn = () => {
+const SignIn = () => {
   const selectTheme = (state) => state.theme
   const theme = useSelector(selectTheme)
 
@@ -55,7 +55,6 @@ import {
   if (message === 200) {
     return <Redirect to="/user" />
   } 
-
 
   return (
     <>

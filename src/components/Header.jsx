@@ -4,7 +4,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 // actions imports
-import { logout } from '../actions/actionLogout'
+import { logOut } from '../actions/actionLogout'
 // assets imports
 import logo from '../assets/argentBankLogo.png'
 // styles imports
@@ -19,6 +19,20 @@ import {
 } from '../styles/components/header'
 
 // JSX // _________________________________________________________________
+
+/**
+ * to log out and unstock token
+ * @function
+ * @name logout
+ * @returns {object}
+ */
+ export const logout = () => {
+  localStorage.removeItem('token')
+  return (dispatch) => {
+    dispatch(logOut())
+  }
+}
+
 
 /**
  * Header component to display website's header

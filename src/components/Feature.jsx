@@ -23,7 +23,7 @@ import {
  * @returns {?JSX}
  */
 
- const Feature = ({ icon, alt, title, content }) => {
+const Feature = ({ icon, alt, title, content }) => {
   const selectTheme = (state) => state.theme
   const theme = useSelector(selectTheme)
 
@@ -35,17 +35,18 @@ import {
     </FeatureItemStyle>
   )
 }
+
 // PROPTYPES // ___________________________________________________________
 
 Feature.propTypes = {
   icon: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired
+  content: PropTypes.string.isRequired,
 }
 
 FeatureImage.propTypes = {
-  theme: PropTypes.string.isRequired
+  theme: PropTypes.string.isRequired,
 }
 
 // EXPORT // ______________________________________________________________

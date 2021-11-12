@@ -14,7 +14,7 @@ import { HeroStyle, HeroContent, Subtitle, Text } from '../styles/components/her
  * @returns {?JSX}
  */
 
- const Hero = () => {
+const Hero = () => {
   const selectTheme = (state) => state.theme
   const theme = useSelector(selectTheme)
 

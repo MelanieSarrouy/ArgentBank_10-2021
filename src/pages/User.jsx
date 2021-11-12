@@ -8,8 +8,8 @@ import PropTypes from 'prop-types'
 import account from '../datas/account'
 // components imports
 import Account from '../components/Account'
-// actions imports
-import { editUser } from '../actions/actionEditUser'
+// API calls
+import { editUser } from '../services/API'
 // styles imports
 import { InputButton } from '../styles/components/button'
 import {
@@ -32,7 +32,7 @@ import colors from '../styles/bases/colors'
  * @returns {?JSX}
  */
 
- const User = () => {
+const User = () => {
   const selectTheme = (state) => state.theme
   const theme = useSelector(selectTheme)
 
